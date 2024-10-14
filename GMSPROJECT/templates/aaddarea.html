@@ -1,0 +1,13 @@
+{% extends 'adminhome.html' %}
+
+{% block 'sree' %}
+
+<center>
+    <form method="post" action="/addarea1/{{aid}}">
+    {% csrf_token%}
+        <label>ENTER AREA NAME : </label>&nbsp;&nbsp;
+        <input type="text" name="aname" required /><br>
+        <input type="submit" value="ADD"/>
+    </form>
+</center>
+{% endblock %}

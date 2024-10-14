@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'adminapp',
     'userapp',
+
 ]
 
 MIDDLEWARE = [
@@ -122,9 +123,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR, STATIC_URL)
 ]
+
+
+
+TWILIO_ACCOUNT_SID='AC2df35ddf52b0ea2a301bbbb908cc260b'
+TWILIO_AUTH_TOKEN='580cdeda8e6024dd589f0b7d28b977f5'
+TWILIO_PHONE_NUMBER='+19095543064'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

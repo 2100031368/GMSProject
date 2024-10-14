@@ -1,0 +1,101 @@
+body{
+background-color:#ffffff ;
+}
+.button {
+  position: relative;
+  background-color: lightgreen;
+  border: none;
+  font-size: 10px;
+  color: #FFFFFF;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+
+
+/* UTILITIES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: cursive;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: orange;
+  color: #fff;
+}
+
+.nav-links a {
+  justify-content: space-between;
+  color: #fff;
+}
+
+/* LOGO */
+.logo {
+  font-size: 32px;
+}
+
+/* NAVBAR MENU */
+.menu {
+  display: flex;
+  gap: 1em;
+  font-size: 18px;
+}
+
+.menu a{
+font-family: 'Times New Roman', Times, serif;
+}
+
+
+.menu li:hover {
+  background-color: #B0E0E6;
+  color: black;
+}
+
+.menu li {
+  padding: 5px 14px;
+}
+
+
+/* Custom grid layout for images */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.image-grid img {
+    width: 30%; /* Set image width to 30% of container */
+    margin-bottom: 20px; /* Add space between rows */
+}
+
+.image-grid a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.img-custom {
+    width: 50%;
+    height: 50%;
+}
+

@@ -1,0 +1,34 @@
+
+{% extends 'adminhome.html' %}
+
+{% block 'sree' %}
+
+ <center>
+
+        <h4 style="font-family: 'Times New Roman', Times, serif;">{{msg}}</h4><br>
+        <h4 style="font-family: 'Times New Roman', Times, serif;"><a href="/adduser0/{{aid}}">ADD USER</a></h4><br>
+        <table border="1" style="font-family: 'Times New Roman', Times, serif;">
+            <tr bgcolor="lightblue">
+                <td>AADHAAR</td>
+                <td>NAME</td>
+                <td>MOBILE</td>
+                <td>SELF ACCOUNT ACCESS</td>
+                <td>ADMIN PREIVILAGE</td>
+                <td>ACTION</td>
+            </tr>
+            {% for i in users %}
+            <tr>
+                <td>{{i.uid}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.mobile}}</td>
+                <td>{{i.flag}}</td>
+                <td>{{i.access}}</td>
+                <td>
+                    <a href="">EDIT DETAILS</a><br><br>
+                    <a href="">GRIEVANCES POSTED</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+ </center>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+
+{% block 'body' %}
+<h2 style= "font-family: 'Times New Roman', Times, serif;">LOGIN FORM</h2>
+<h2>{{msg}}</h2>
+<center>
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <label>ENTER AADHAAR NUMBER</label>
+    <input type="number" maxlength="12" minlength="12" required name="id"/><br>
+    <input type="submit" value="LOGIN"/>
+
+</form>
+</center>
+{% endblock %}

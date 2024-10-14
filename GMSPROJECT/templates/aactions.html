@@ -1,0 +1,61 @@
+{% extends 'adminhome.html' %}
+
+{% load static %}
+
+{% block 'sree' %}
+<center>
+    <h3 align="center" style="font-family: 'Times New Roman', Times, serif;"><b> 📋 DASHBOARD 📋</b></h3><br>
+
+    <div class="container">
+        <div class="row">
+            <!-- First Image -->
+            <div class="col-md-4">
+
+                    <img src="{% static 'images/fpg1.jpg' %}" alt="View Users"  class="img-fluid img-custom" onclick="window.location.href='/viewusers0/{{aid}}'" style="cursor: pointer;">
+                    <p align="center">View Users</p>
+                </a>
+            </div>
+            <!-- Second Image -->
+            <div class="col-md-4">
+                <a href="/another_action">
+                    <img src="{% static 'images/fpg1.jpg' %}" alt="Another Action"  class="img-fluid img-custom">
+                    <p align="center">Another Action</p>
+                </a>
+            </div>
+            <!-- Third Image -->
+            <div class="col-md-4">
+                <a href="/some_action">
+                    <img src="{% static 'images/fpg1.jpg' %}" alt="Some Action"  class="img-fluid img-custom">
+                    <p align="center">Some Action</p>
+                </a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <!-- Repeat the same for next rows -->
+            <!-- Fourth Image -->
+            <div class="col-md-4">
+                <a href="/next_action">
+                    <img src="{% static 'images/fpg1.jpg' %}" alt="Next Action"  class="img-fluid img-custom">
+                    <p align="center">Next Action</p>
+                </a>
+            </div>
+            <!-- Fifth Image -->
+            <div class="col-md-4">
+                <a href="/some_other_action">
+                    <img src="{% static 'images/fpg1.jpg' %}" alt="Some Other Action"  class="img-fluid img-custom">
+                    <p align="center">Some Other Action</p>
+                </a>
+            </div>
+            <!-- Sixth Image -->
+            <div class="col-md-4">
+                <a href="/another_link">
+                    <img src="{% static 'images/fpg1.jpg' %}" alt="Another Link"  class="img-fluid img-custom">
+                    <p align="center">Another Link</p>
+                </a>
+            </div>
+        </div>
+        <!-- Add additional rows as needed for more images -->
+    </div>
+</center>
+{% endblock %}

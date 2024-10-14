@@ -1,0 +1,25 @@
+{% load static %}
+
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" >
+</head>
+<body>
+<nav class="navbar">
+    <ul class="links">
+        <div class="menu">
+            <li><a href="/viewareas">AREAS</a></li>
+            <li><a href="#">USERS</a></li>
+            <li><a href="#">👤</a></li>
+            <li><a href="#">LOGOUT</a></li>
+        </div>
+    </ul>
+</nav>
+{% block 'sree' %}
+<h3>WELCOME ADMIN</h3>
+{% endblock %}
+</body>
+</html>

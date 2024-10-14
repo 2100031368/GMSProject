@@ -1,0 +1,26 @@
+{% load static %}
+
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<nav class="navbar">
+    <img src="{% static 'images/logo.png' %}" width="60%" height="50%"/>
+    <ul class="links">
+        <div class="menu">
+            <li><a href="{% url 'home' %}">HOME</a></li>
+            <li><a href="{% url 'about' %}">ABOUT</a></li>
+            <li><a href="{% url 'contact' %}">CONTACT</a></li>
+            <li><a href="{% url 'login' %}">LOGIN</a></li>
+        </div>
+    </ul>
+</nav>
+{% block 'body' %}
+<img src="{% static 'images/fpg1.jpg' %}" style="margin-left:20%; width:50%; height:70%; margin-top:3%;"/>
+{% endblock %}
+</body>
+</html>

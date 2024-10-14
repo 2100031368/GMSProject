@@ -1,0 +1,59 @@
+{% extends 'adminhome.html' %}
+
+{% block 'sree' %}
+<center>
+<h4 style="color:red">{{msg}}</h4><br>
+<a href="/aaddarea0">ADD AREA</a>
+<input class="form-control" id="myInput" type="text" placeholder="Search ..."><br><br>
+<table border="1" style="font-family: 'Times New Roman', Times, serif;">
+    <thead>
+    <tr bgcolor="lightblue">
+        <td><b>AREA ID</b></td>
+        <td><b>AREA NAME</b></td>
+        <td><b>ACTION</b></td>
+    </tr>
+    </thead>
+    {% for i in area %}
+    <tbody class="myInput">
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.area}}</td>
+        <td><a href="/action0/{{i.id}}">ACTION</a></td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+</center>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const input = document.getElementById("myInput");
+    input.addEventListener("input", filterTable);
+});
+
+function filterTable() {
+    const filter = document.getElementById("myInput").value.toLowerCase();
+    const rows = document.querySelectorAll("tbody tr");
+    rows.forEach(row => {
+        const cells = row.getElementsByTagName("td");
+        let display = "none";
+        for (let i = 0; i < cells.length; i++) {
+            const cellText = cells[i].textContent || cells[i].innerText;
+            if (cellText.toLowerCase().indexOf(filter) > -1) {
+                display = "";
+                break;
+            }
+        }
+        row.style.display = display;
+    });
+}
+</script>
+
+<script type="text/javascript">
+function confirmDelete(areaId) {
+    if (confirm("Are you sure you want to delete this area? Deleting it will remove all its residents.")) {
+        window.location.href = '/delarea0/' + areaId;
+    }
+}
+</script>
+
+{% endblock %}

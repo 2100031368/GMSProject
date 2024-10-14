@@ -1,0 +1,22 @@
+{% extends 'adminhome.html' %}
+
+{% block 'sree' %}
+<center>
+   <h4 align="center" style="color:red;font-family: 'Times New Roman', Times, serif;">{{msg}}</h4>
+<h3 align="center" style="font-family: 'Times New Roman', Times, serif;"><b> 🆕 ADD RESIDENT DETAILS 🆕</b></h3><br>
+
+ <div class="box">
+<form align="center" method="post" class="form-control" action="/adduser0/{{aid}}">
+
+    {% csrf_token %}
+
+    {{form.as_p}}
+    <br>
+    <input type="submit" value="ADD" class="addbutton"/>&nbsp;&nbsp;
+    <input type="reset" value="CLEAR" class="addbutton" />
+
+</form>
+</div>
+
+</center>
+{% endblock %}
