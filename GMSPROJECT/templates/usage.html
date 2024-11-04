@@ -1,0 +1,18 @@
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+ <center>
+<div class="acu">
+        <h2 style="font-family: 'Times New Roman', Times, serif;"><b>📝 HOW TO USE WEBSITE ? 📝</b></h2><br>
+        {% if flag %} <button class="button" onclick="window.location.href='/addaacu/{{3}}'">EDIT</button> {% endif %}
+        <h6 style="font-family:'Times New Roman', Times, serif; margin-top:3%;">{{usage.data}}</h6>
+</div>
+   </center>
+</body>
+</html>

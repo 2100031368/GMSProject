@@ -1,20 +1,28 @@
-body{
-background-color:#ffffff ;
-}
 .button {
-  position: relative;
-  background-color: lightgreen;
-  border: none;
-  font-size: 10px;
-  color: #FFFFFF;
-  padding: 10px;
-  width: 100px;
-  text-align: center;
-  text-decoration: none;
-  overflow: hidden;
+  display: inline-block;  /* Change block to inline-block */
+  width: auto;  /* Allow the button to fit its content */
+  padding: 12px 20px;
+  font-size: 14px;
   cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  outline: none;
+  text-align: left;
+  background-color: #87CEEB ;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  align:left;
 }
 
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 
 
 
@@ -40,7 +48,7 @@ li {
 .navbar {
   display: flex;
   align-items: center;
-  background-color: orange;
+  background-color: #f7d569;
   color: #fff;
 }
 
@@ -67,7 +75,7 @@ font-family: 'Times New Roman', Times, serif;
 
 
 .menu li:hover {
-  background-color: #B0E0E6;
+  background-color:#f7c25a ;
   color: black;
 }
 
@@ -76,26 +84,171 @@ font-family: 'Times New Roman', Times, serif;
 }
 
 
-/* Custom grid layout for images */
-.image-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+/* after user logs in home pg bg "vijayawada */
+.content{
+background-image: url('/static/images/vijbg.png');
+width:100%;
+height:90%;
+overflow-y: auto;
 }
 
-.image-grid img {
-    width: 30%; /* Set image width to 30% of container */
-    margin-bottom: 20px; /* Add space between rows */
+/* 2 images in user home pg */
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
 }
 
-.image-grid a {
-    text-align: center;
-    text-decoration: none;
-    color: black;
+.image-container a {
+  width: 100px; /* Adjust this based on how many images you want per row */
 }
 
-.img-custom {
-    width: 50%;
-    height: 50%;
+.image {
+  width: 180px; /* Set width for the images */
+  height: auto;  /* Maintain aspect ratio */
+  cursor: pointer;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
+@media (min-width: 600px) {
+  .image-container a {
+    flex-basis: calc(33.333% - 65px); /* 3 items per row */
+  }
+}
+
+@media (max-width: 599px) {
+  .image-container a {
+    flex-basis: calc(50% - 65px); /* 2 items per row */
+  }
+}
+
+/*  box around forms */
+ .box {
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 20px;
+        width: 40%;
+        margin: 0 auto;
+        font-family: 'Times New Roman', Times, serif;
+       background-image: url('/static/images/formbg2.png');
+ }
+
+ /* forms */
+ .form-control{
+
+     font-family:'Times New Roman', Times, serif;
+     font-size:20px;
+    }
+   .form-control label {
+    font-weight: bold; /* Making labels bold */
+    margin-bottom: 50px; /* Adding some space between labels */
+  }
+  .form-control input[type="text"],
+  .form-control select,
+  .form-control textarea {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin-bottom: 10px; /* Adding space below input fields */
+    width: 100%; /* Ensuring input fields take full width */
+    box-sizing: border-box; /* Including padding and border in width calculation */
+    padding: 5px; /* Adding padding for better spacing */
+  }
+
+/* multiple color of welcome */
+.multi{
+      font-size: 40px;
+      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      color: transparent;
+}
+
+/* SOLVED - UNSOLVED BUTTON  */
+.button1 {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  outline: none;
+  text-align: left;
+  background-color: lightgreen ;
+  border: none;
+  border-radius: 15px;
+
+  align:left;
+}
+
+ .button2 {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  outline: none;
+  text-align: left;
+  background-color: #87CEEB ;
+  border: none;
+  border-radius: 15px;
+
+  align:left;
+}
+
+
+.button2:hover {background-color: #3e8e41}
+
+
+/* NOTIFICATION SPARKING */
+@keyframes spark {
+    0% { background-color: yellow; }
+    20% { background-color: red; }
+    30% { background-color: yellow; }
+}
+
+.spark {
+    animation: spark 1s infinite; /* Apply animation */
+    padding: 2px;
+    border: 2px solid red; /* Optional border for more visibility */
+    font-weight: bold;
+}
+
+/* about contact usage page bg */
+
+.acu{
+background-image: url('/static/images/formbg2.jpg');
+background-size: cover; /* Ensures the image covers the entire page */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+}
+
+/* form for about, contact, uage edit bg */
+/* forms */
+ .form-control1{
+
+     font-family:'Times New Roman', Times, serif;
+     font-size:20px;
+    }
+   .form-control1 label {
+    font-weight: bold; /* Making labels bold */
+    margin-bottom: 50px; /* Adding some space between labels */
+  }
+  .form-control1 input[type="text"],
+  .form-control1 select,
+  .form-control1 textarea {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin-bottom: 10px; /* Adding space below input fields */
+    height:50%;
+    width:50%;
+    box-sizing: border-box; /* Including padding and border in width calculation */
+    padding: 5px; /* Adding padding for better spacing */
+  }

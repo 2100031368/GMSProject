@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+<div class="acu">
+    <center>
+        <h2 style="font-family: 'Times New Roman', Times, serif;">{{title}}</h2><br>
+        <form method="post" action="/addaacu/{{id}}" class="form-control1">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="UPDATE" class="button"/>
+            <input type="reset" value="CLEAR" class="button"/>
+        </form>
+    </center>
+</div>
+</body>
+</html>

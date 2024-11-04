@@ -1,0 +1,16 @@
+{% extends 'userhome.html' %}
+
+{% block 'user' %}
+<center>
+    <h4 style="color: red; font-family:'Times New Roman', Times, serif margin-top:1%">{{msg}}</h4>
+    <h2 style="font-family:'Times New Roman', Times, serif ;margin-top:3%"><b>? EDIT DETAILS OF ?</b></h2>
+    <ol  style="font-family:'Times New Roman', Times, serif ;margin-top:1%">
+         <button class="button" onclick="window.location.href='/editmobile'" style="margin-bottom:1%;"><b>MOBILE NUMBER</b></button><br>
+        <button class="button" onclick="window.location.href='/editname'" style="margin-bottom:1%;"><b>NAME</b></button><br>
+        <button class="button" onclick="window.location.href='/editarea0'" style="margin-bottom:1%;"><b>AREA</b></button><br>
+        <button class="button" onclick="window.location.href='/editaddr'" style="margin-bottom:1%;"><b>ADDRESS</b></button><br>
+
+    </ol>
+
+</center>
+{% endblock %}

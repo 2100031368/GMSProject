@@ -1,0 +1,75 @@
+{% extends 'adminhome.html' %}
+
+{% block 'sree' %}
+<center>
+    <h2 style="font-family:'Times New Roman', Times, serif;margin-bottom:2%;; margin-top:2%;"><b>⬇️ EDIT DATA REQUESTS ⬇️</b></h2><br>
+    <input class="form-control" id="myInput" type="text" placeholder="Search ..."><br><br>
+    <table border="1" style="font-family: 'Times New Roman', Times, serif;">
+        <thead>
+        <tr bgcolor="lightblue">
+            <td><b>POSTED DATE</b></td>
+            <td><b>TYPE</b></td>
+            <td><b>OLD DATA</b></td>
+            <td><b>UPDATE DATA</b></td>
+            <td><b>REASON</b></td>
+            <td><b>PROOF</b></td>
+            <td><b>STATUS</b></td>
+
+        </tr>
+        </thead>
+        {% for i in reqs %}
+        <tr>
+             <td>{{i.reqdt}}</td>
+            <td>{{i.type}}</td>
+            <td>{{i.old}}</td>
+            <td>{{i.new}}</td>
+            <td>{{i.reason}}</td>
+            <td><a href="/media/{{i.proof}}">DOCUMENT</a></td>
+            <td>
+                {% if i.status == 1 %}
+                  <button class="button1"><b>ACCEPTED</b></button>&nbsp;
+                {% elif i.status == 2 %}
+                  <button class="button1"><b>REJECTED</b></button>
+                {% else %}
+                  <button class="button2" onclick="edit({{i.eid}}, {{1}})"><b>ACCEPT</b></button>&nbsp;
+                  <button class="button2" onclick="edit({{i.eid}}, {{2}})"><b>REJECT</b></button>
+                {% endif %}
+
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+<script type="text/javascript">
+
+    function edit(eid, flag){
+         window.location.href='/aeditreq1/' + eid +'/' +flag;
+    }
+
+</script>
+   <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const input = document.getElementById("myInput");
+    input.addEventListener("input", filterTable);
+});
+
+function filterTable() {
+    const filter = document.getElementById("myInput").value.toLowerCase();
+    const rows = document.querySelectorAll("tbody tr");
+    rows.forEach(row => {
+        const cells = row.getElementsByTagName("td");
+        let display = "none";
+        for (let i = 0; i < cells.length; i++) {
+            const cellText = cells[i].textContent || cells[i].innerText;
+            if (cellText.toLowerCase().indexOf(filter) > -1) {
+                display = "";
+                break;
+            }
+        }
+        row.style.display = display;
+    });
+}
+</script>
+
+{% endblock %}

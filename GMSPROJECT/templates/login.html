@@ -1,15 +1,27 @@
 {% extends 'home.html' %}
-
+{% load static %}
 {% block 'body' %}
-<h2 style= "font-family: 'Times New Roman', Times, serif;">LOGIN FORM</h2>
-<h2>{{msg}}</h2>
+<style>
+    body {
+        background-image: url("{% static 'images/loginbg4.png' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+</style>
+<div>
 <center>
-<form method="post" action="{% url 'login' %}">
+<br><br>
+<h2 style= "font-family: 'Times New Roman', Times, serif;"><b>↪️ LOGIN FORM ↩️ </b></h2><br>
+<h2 style= "font-family: 'Times New Roman', Times, serif; color:red">{{msg}}</h2><br>
+
+<form method="post" action="{% url 'login' %}" style= "font-family: 'Times New Roman', Times, serif;">
     {% csrf_token %}
-    <label>ENTER AADHAAR NUMBER</label>
-    <input type="number" maxlength="12" minlength="12" required name="id"/><br>
-    <input type="submit" value="LOGIN"/>
+    <label><b>ENTER AADHAAR NUMBER </b></label>
+    <input type="number" maxlength="12" minlength="12" required name="id"/><br><br>
+    <input type="submit" value="LOGIN" class="button"/>
 
 </form>
 </center>
+</div>
 {% endblock %}

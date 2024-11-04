@@ -2,13 +2,14 @@
 
 {% block 'sree' %}
 <center>
-    <form method="post" action="/updatearea/{{area.id}}">
+    <h3 style="font-family: 'Times New Roman', Times, serif; margin-top:3%;">&#x1F503;YOU ARE UPDATING AREA NAME - {{area.area}}. SO IT REFLECTS IN PEOPLE AREA AND GRIEVANCES.&#x1F503;</h3><br>
+    <div class="box">
+        <form method="post" action="/updatearea/{{area.id}}" class="form-control">
         {% csrf_token %}
-        <h3>YOU ARE UPDATING AREA NAME - {{area.area}}. SO IT REFLECTS IN PEOPLE AREA AND GRIEVANCES.</h3>
-        <h4>EVERYTHING WILL BE UPDATED !</h4>
         <input type="text" name="aname" required />
-        <input type="submit" value="UPDATE" />
+        <input type="submit" value="UPDATE"  class="button"/>
 
     </form>
+    </div>
 </center>
 {% endblock %}

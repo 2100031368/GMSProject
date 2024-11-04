@@ -1,0 +1,23 @@
+{% extends 'userhome.html' %}
+
+{% block 'user' %}
+<center>
+    <h4 style="font-family:'Times New Roman', Times, serif; margin-top:1%; margin-bottom:1%; color:red">{{msg}}</h4>
+    <h2 style="font-family:'Times New Roman', Times, serif; margin-top:1%; margin-bottom:1%; "><b>&#x1F503; REQUEST TO MODIFY NAME &#x1F503;</b></h2><br>
+    <h6 style="font-family:'Times New Roman', Times, serif;  margin-bottom:1%; color:red">NOTE: YOUR REQUEST WILL BE REJECTED IF YOUR AADHAAR SUBMITTING DOESN'T CONTAIN MOBILE NUMBER MENTIONING</h6><br>
+
+    <div class="box">
+    <form method="post" action="/editname" enctype="multipart/form-data" class="form-control">
+        {% csrf_token %}
+        <lable>ENTER NAME TO UPDATE</lable><br>
+        <input type="text" required name="newname"/><br><br>
+        <label>REASON FOR UPDATING NAME</label><br>
+        <input type="text" required name="reason" /><br><br>
+        <lable>PROOF(YOUR AADHAR CARD CONTAINING NAME MENTIONING)</lable>
+        <input type="file" required name="file"/><br><br>
+        <input type="submit" value="SEND" class="button"/>
+        <input type="reset" value="CLEAR" class="button"/>
+    </form>
+    </div>
+</center>
+{% endblock %}

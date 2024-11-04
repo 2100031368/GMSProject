@@ -1,12 +1,24 @@
 {% extends 'home.html' %}
-
+{% load static %}
 {% block 'body' %}
+<style>
+    body {
+        background-image: url("{% static 'images/loginbg4.png' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+</style>
+<div>
 <center>
-    <form method="post" action="{% url 'verifyOtp' %}">
+<br><br>
+<h2 style= "font-family: 'Times New Roman', Times, serif;"><b>↪️ ENTER OTP ↩️ </b></h2><br>
+<h2 style= "font-family: 'Times New Roman', Times, serif; color:red">{{msg}}</h2><br>
+    <form method="post" action="{% url 'verifyOtp' %}" style= "font-family: 'Times New Roman', Times, serif;">
         {% csrf_token %}
         <label>ENTER OTP : </label>
-        <input type="number" name="otp" required /><br>
-        <input type="submit" value="SUBMIT" />
+        <input type="number" name="otp" required /><br><br>
+        <input type="submit" value="SUBMIT" class="button"/>
     </form>
 </center>
 {% endblock %}

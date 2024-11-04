@@ -3,11 +3,14 @@
 {% block 'sree' %}
 
 <center>
-    <form method="post" action="/addarea1/{{aid}}">
+    <div class="box">
+    <form method="post" action="/aaddarea1" class="form-control">
     {% csrf_token%}
         <label>ENTER AREA NAME : </label>&nbsp;&nbsp;
         <input type="text" name="aname" required /><br>
-        <input type="submit" value="ADD"/>
+        <input type="submit" value="ADD" class="button"/>
+        <input type="reset" value="CLEAR" class="button"/>
     </form>
+    </div>
 </center>
 {% endblock %}

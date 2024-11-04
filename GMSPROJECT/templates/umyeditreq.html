@@ -1,0 +1,84 @@
+{% extends 'userhome.html' %}
+
+{% block 'user' %}
+<center>
+    <h2 style="font-family:'Times New Roman', Times, serif;margin-bottom:2%;; margin-top:2%;"><b>⬇️ MY EDIT DATA REQUESTS ⬇️</b></h2>
+      <button class="button" onclick="window.location.href='/editmydetails0'" style="margin-bottom:1%;"><b>EDIT MY DETAILS</b></button><br>
+    <input class="form-control" id="myInput" type="text" placeholder="Search ..."><br><br>
+
+    <table border="1" style="font-family: 'Times New Roman', Times, serif;">
+        <thead>
+        <tr bgcolor="lightblue">
+            <td><b>POSTED DATE</b></td>
+            <td><b>TYPE</b></td>
+            <td><b>OLD DATA</b></td>
+            <td><b>UPDATE DATA</b></td>
+            <td><b>REASON</b></td>
+            <td><b>PROOF</b></td>
+            <td><b>STATUS</b></td>
+            <td><b>ACTION</b></td>
+        </tr>
+        </thead>
+        {% for i in myreq %}
+        <tr>
+             <td>{{i.reqdt}}</td>
+            <td>{{i.type}}</td>
+            <td>{{i.old}}</td>
+            <td>{{i.new}}</td>
+            <td>{{i.reason}}</td>
+            <td><a href="/media/{{i.proof}}">DOCUMENT</a></td>
+            <td>
+                {% if i.status == 1 %}
+                <button class="button1"  >UPDATED</button>
+                {elif i.status == 2 %}
+                <button class="button2"  >REJECTED</button>
+                {% else %}
+                <button>PENDING</button>
+                {% endif %}
+
+            </td>
+            <td>
+                <a href="javascript:void(0)" onclick="checkdelete({{i.eid}}, {{i.status}})">DELETE REQUEST</a><br>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+<script type="text/javascript">
+
+    function checkdelete(eid, status){
+        if(status ==0){
+            window.location.href='/delmyreq/' + eid;
+        }
+        else{
+             alert("ADMINISTRATION ALREADY UPDATED YOUR DETAILS. SO YOU CAN'T DELETE REQUEST");
+        }
+    }
+
+</script>
+ <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const input = document.getElementById("myInput");
+    input.addEventListener("input", filterTable);
+});
+
+function filterTable() {
+    const filter = document.getElementById("myInput").value.toLowerCase();
+    const rows = document.querySelectorAll("tbody tr");
+    rows.forEach(row => {
+        const cells = row.getElementsByTagName("td");
+        let display = "none";
+        for (let i = 0; i < cells.length; i++) {
+            const cellText = cells[i].textContent || cells[i].innerText;
+            if (cellText.toLowerCase().indexOf(filter) > -1) {
+                display = "";
+                break;
+            }
+        }
+        row.style.display = display;
+    });
+}
+</script>
+
+{% endblock %}

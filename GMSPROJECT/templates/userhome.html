@@ -1,10 +1,42 @@
-<!DOCTYPE html>
+{% load static %}
+
+<html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" >
 </head>
 <body>
-<h3>WELCOME USER</h3>
+<nav class="navbar">
+    <img src="{% static 'images/logo1.png' %}" width="5%" height="5%"/>
+    <ul class="links">
+        <div class="menu">
+            <li><a href="/userhome">HOME</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <li><a href="/contact">CONTACT</a></li>
+            <li><a href="/usage">HowToUse</a></li>
+            <li><a href="/myprofile">MYPROFILE</a></li>
+            <li><a href="/login">LOGOUT</a></li>
+        </div>
+    </ul>
+</nav>
+<div class="content">
+<center>
+{% block 'user' %}
+    <h2 style="font-family:'Times New Roman', Times,serif;" class="multi">WELCOME USER</h2><br><br>
+    <div class="image-container">
+        <a href="/viewmygre0">
+          <h4 style="font-family:'Times New Roman', Times,serif;">MY GRIEVANCES</h4>
+          <img src="{% static 'images/gre1.png' %}" alt="Image 1" class="image">
+        </a>
+        <a href="/myedits">
+          <h4 style="font-family:'Times New Roman', Times,serif;">EDIT DATA REQUESTS</h4>
+          <img src="{% static 'images/gre3.png' %}" alt="Image 2" class="image">
+       </a>
+  </div>
+{% endblock %}
+</center>
+</div>
 </body>
 </html>

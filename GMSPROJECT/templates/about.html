@@ -1,5 +1,18 @@
-{% extends 'home.html' %}
-
-{% block 'body' %}
-<h2>ABOUT PAGE</h2>
-{% endblock %}
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+ <center>
+<div class="acu">
+        <h2 style="font-family: 'Times New Roman', Times, serif;">💡 ABOUT GRIEVANCE PORTAL 💡</h2><br>
+        {% if flag %} <button class="button" onclick="window.location.href='/addaacu/{{1}}'">EDIT</button> {% endif %}
+        <h6 style="font-family:'Times New Roman', Times, serif; margin-top:3%;">{{about.data}}</h6>
+</div>
+   </center>
+</body>
+</html>

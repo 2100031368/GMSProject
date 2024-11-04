@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load i18n %}
 <html>
 <html lang="en">
 <head>
@@ -9,18 +9,42 @@
 </head>
 <body>
 <nav class="navbar">
-    <img src="{% static 'images/logo.png' %}" width="60%" height="50%"/>
+    <img src="{% static 'images/logo1.png' %}" width="5%" height="5%"/>
     <ul class="links">
         <div class="menu">
             <li><a href="{% url 'home' %}">HOME</a></li>
             <li><a href="{% url 'about' %}">ABOUT</a></li>
+            <li><a href="{% url 'usage' %}">USAGE</a></li>
             <li><a href="{% url 'contact' %}">CONTACT</a></li>
             <li><a href="{% url 'login' %}">LOGIN</a></li>
+            <li>
+                <form id="langForm" method="post"  action="{% url 'set_lang' %}">
+                {% csrf_token %}
+                    <label>Lang:</label>
+                    <select name="language" id=language" onchange="changeLang(this.value)">
+                    {% for lang_code, lang_name in LANGUAGES %}
+                      {% if lang_code == LANGUAGE_CODE %}
+                        <option value="{{lang_code}}" selected>{{lang_name}}</option>
+                      {% else %}
+                        <option value="{{lang_code}}">{{lang_name}}</option>
+                      {% endif %}
+                    {% endfor %}
+                    </select>
+                </form>
+            </li>
         </div>
     </ul>
 </nav>
 {% block 'body' %}
 <img src="{% static 'images/fpg1.jpg' %}" style="margin-left:20%; width:50%; height:70%; margin-top:3%;"/>
+<h3>hello</h3>
 {% endblock %}
 </body>
+<script>
+    function changeLang(langCode){
+    const form =  document.getElementById('langForm');
+    form.language.value=langCode;
+    form.submit();
+    }
+</script>
 </html>

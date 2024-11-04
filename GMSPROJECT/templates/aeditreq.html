@@ -1,0 +1,46 @@
+{% extends 'adminhome.html' %}
+
+{% block 'sree' %}
+<center>
+
+    <h2 style="font-family:'Times New Roman', Times, serif; margin-bottom:2%;"><b>⬇️ GRIEVANCES LIST ⬇️</b></h2>
+    <table border="1" style="font-family: 'Times New Roman', Times, serif;">
+        <thead>
+        <tr bgcolor="lightblue">
+            <td><b>USER ID</b></td>
+            <td><b>AREA</b></td>
+            <td><b>ISSUE TYPE</b></td>
+            <td><b>ISSUE</b></td>
+            <td><b>VIEWED DATE</b></td>
+            <td><b>SOLVED-STATUS</b></td>
+            <td><b>SOLVED DATE</b></td>
+        </tr>
+        </thead>
+        {% for i in gres %}
+        <tr>
+            <td>{{i.postdt}}</td>
+            <td>{{i.area}}</td>
+            <td>{{i.issue_type}}</td>
+            <td><a href="/readgre/{{i.gid}}">VIEW</a></td>
+            <td>{{i.viewdt}}</td>
+
+            <td>{{i.solvedt}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+<script type="text/javascript">
+
+    function solve(gid, viewflag){
+        if(viewflag != 0){
+             window.location.href='/update_issue_status/' + gid;
+        }
+        else{
+           alert("YOU NEED TO FIRST VIEW THE ISSUE");
+        }
+    }
+
+</script>
+{% endblock %}

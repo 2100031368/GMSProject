@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'GMSPROJECT.urls'
@@ -65,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -112,6 +114,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+LANGUAGES = [
+    ('en', 'English'),
+    ('hi', 'Hindi'),
+    ('te', 'Telugu'),
+]
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -128,6 +136,8 @@ STATICFILES_DIRS =[
     os.path.join(BASE_DIR, STATIC_URL)
 ]
 
+MEDIA_URL= '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 TWILIO_ACCOUNT_SID='AC2df35ddf52b0ea2a301bbbb908cc260b'
@@ -138,3 +148,6 @@ TWILIO_PHONE_NUMBER='+19095543064'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+### for language setiiings

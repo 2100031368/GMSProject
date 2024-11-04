@@ -1,0 +1,23 @@
+{% extends 'userhome.html' %}
+
+{% block 'user' %}
+<center>
+    <h4 style="font-family:'Times New Roman', Times, serif; margin-top:1%; margin-bottom:1%; color:red">{{msg}}</h4>
+    <h2 style="font-family:'Times New Roman', Times, serif; margin-top:1%; margin-bottom:1%; "><b>&#x1F503; REQUEST TO MODIFY ADDRESS &#x1F503;</b></h2><br>
+    <h6 style="font-family:'Times New Roman', Times, serif;  margin-bottom:1%; color:red">NOTE: YOUR REQUEST WILL BE REJECTED IF YOUR PROOFS ARE NOT VALID</h6><br>
+    <div class="box">
+    <form method="post" action="/editaddr0" enctype="multipart/form-data" class="form-control" style="font-size:16px;">
+        {% csrf_token %}
+        <label>ENTER ADDRESS TO UPDATE</label><br>
+        <input type="text" required name="newaddr"/><br><br>
+        <label>REASON FOR UPDATING ADDRESS</label><br>
+        <input type="text" required name="reason" /><br><br>
+        <label>PROOF</label>
+        <p>(ELECTRICITY BILL,GAS BILL,INTERNET BILL,BANK PASSBOOKS,ANY DOCUMENTS..CONTAING UPDATING ADDRESS WITH YOUR NAME)</p><br>
+        <input type="file" required name="file"/><br><br>
+        <input type="submit" value="SEND" class="button" />&nbsp;
+        <input type="reset" value="CLEAR"class="button" />
+    </form>
+    </div>
+</center>
+{% endblock %}

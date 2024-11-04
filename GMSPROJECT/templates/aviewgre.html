@@ -1,0 +1,82 @@
+{% extends 'adminhome.html' %}
+
+{% block 'sree' %}
+<center>
+
+    <h2 style="font-family:'Times New Roman', Times, serif; margin-bottom:2%;"><b>⬇️ GRIEVANCES LIST ⬇️</b></h2><br>
+    <h4 style="font-family:'Times New Roman', Times, serif; margin-bottom:2%;">{{msg}}</h4>
+    <input class="form-control" id="myInput" type="text" placeholder="Search ..."><br><br>
+    <table border="1" style="font-family: 'Times New Roman', Times, serif;">
+        <thead>
+        <tr bgcolor="lightblue">
+            <td><b>ISSUE ID</b></td>
+            <td><b>POSTED DATE</b></td>
+            <td><b>AREA</b></td>
+            <td><b>ISSUE TYPE</b></td>
+            <td><b>ISSUE</b></td>
+            <td><b>VIEWED DATE</b></td>
+            <td><b>SOLVED-STATUS</b></td>
+            <td><b>SOLVED DATE</b></td>
+            <td><b>SOLVED BY</b></td>
+        </tr>
+        </thead>
+        {% for i in gres %}
+        <tr>
+            <td>{{i.gid}}</td>
+            <td>{{i.postdt}}</td>
+            <td>{{i.area}}</td>
+            <td>{{i.issue_type}}</td>
+            <td><a href="/readgre/{{i.gid}}">VIEW</a></td>
+            <td>{{i.viewdt}}</td>
+            <td>
+                 {% if i.solvedflag %}
+                  <button class="button1"><b>SLOVED</b></button>&nbsp;
+                {% else %}
+                  <button class="button2" onclick="solve({{i.gid}}, {{i.viewflag}})"><b>UNSLOVED</b></button>&nbsp;
+                {% endif %}
+            </td>
+
+            <td>{{i.solvedt}}</td>
+            <td>{{i.solvedby}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+<script type="text/javascript">
+
+    function solve(gid, viewflag){
+        if(viewflag != 0){
+             window.location.href='/update_issue_status/' + gid;
+        }
+        else{
+           alert("YOU NEED TO FIRST VIEW THE ISSUE");
+        }
+    }
+
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const input = document.getElementById("myInput");
+    input.addEventListener("input", filterTable);
+});
+
+function filterTable() {
+    const filter = document.getElementById("myInput").value.toLowerCase();
+    const rows = document.querySelectorAll("tbody tr");
+    rows.forEach(row => {
+        const cells = row.getElementsByTagName("td");
+        let display = "none";
+        for (let i = 0; i < cells.length; i++) {
+            const cellText = cells[i].textContent || cells[i].innerText;
+            if (cellText.toLowerCase().indexOf(filter) > -1) {
+                display = "";
+                break;
+            }
+        }
+        row.style.display = display;
+    });
+}
+</script>
+{% endblock %}

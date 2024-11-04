@@ -3,7 +3,8 @@
 {% block 'sree' %}
 <center>
 <h4 style="color:red">{{msg}}</h4><br>
-<a href="/aaddarea0">ADD AREA</a>
+    <h2 style="font-family:'Times New Roman', Times, serif; margin-bottom:2%;"><b>⬇️ AREAS AVAILABLE ⬇️</b></h2>
+    <button class="button" onclick="window.location.href='/aaddarea0'" style="margin-bottom:1%;"><b>ADD AREA</b></button>
 <input class="form-control" id="myInput" type="text" placeholder="Search ..."><br><br>
 <table border="1" style="font-family: 'Times New Roman', Times, serif;">
     <thead>
@@ -18,7 +19,12 @@
     <tr>
         <td>{{i.id}}</td>
         <td>{{i.area}}</td>
-        <td><a href="/action0/{{i.id}}">ACTION</a></td>
+        <td>
+            <a href="/aeditarea0/{{i.id}}">UPDATE AREA NAME</a><br><br>
+             <a href="/delarea0/{{i.id}}">DELETE AREA</a><br><br>
+            <a href="/viewusers0/{{i.id}}">RESIDENTS</a><br><br>
+            <a href="/aaddsubadmin0/{{i.id}}">ADD SUBADMIN</a><br><br>
+        </td>
     </tr>
     </tbody>
     {% endfor %}

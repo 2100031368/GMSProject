@@ -1,0 +1,23 @@
+{% extends 'adminhome.html' %}
+
+{% block 'sree' %}
+<center>
+   <h4 align="center" style="color:red;font-family: 'Times New Roman', Times, serif;">{{msg}}</h4>
+<h3 align="center" style="font-family: 'Times New Roman', Times, serif;"><b>🔔 SEND NOTIFICATION 🔔</b></h3><br>
+    <h5 style="font-family: 'Times New Roman', Times, serif;">SENDING TO - {{uid}}, {{uname}}</h5><br>
+
+ <div class="box">
+<form align="center" method="post" class="form-control" action="/sendnotify/{{uid}}">
+
+    {% csrf_token %}
+
+    {{form.as_p}}
+    <br>
+    <input type="submit" value="SEND" class="button"/>&nbsp;&nbsp;
+    <input type="reset" value="CLEAR" class="button" />
+
+</form>
+</div>
+
+</center>
+{% endblock %}

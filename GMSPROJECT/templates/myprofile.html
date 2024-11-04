@@ -1,0 +1,21 @@
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" >
+</head>
+<body>
+
+<center>
+    <div class="acu">
+        <h1 style="font-family:'Times New Roman', Times, serif;"><b>MY PROFILE INFORMATION</b></h1><br>
+        <h3 style="font-family:'Times New Roman', Times, serif;"><b>AADHAAR ID: {{profile.uid}}</b></h3><br>
+        <h3 style=" font-family:'Times New Roman', Times, serif;"><b>NAME : {{profile.name}}</b></h3><br>
+        <h3 style=" font-family:'Times New Roman', Times, serif;"><b>AREA : {{aname}}</b></h3><br>
+        <h3 style=" font-family:'Times New Roman', Times, serif;"><b>ADDRESS : {{profile.address}}</b></h3>
+    </div>
+</center>
+</body>
+</html>

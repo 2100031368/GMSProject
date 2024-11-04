@@ -1,0 +1,12 @@
+{% extends 'adminhome.html' %}
+
+{% block 'user' %}
+
+<div class="box">
+    <h2>FROM- {{notify.sendby}} ON - {{notify.senddt}}</h2><br>
+    <form class="form-control">
+        {{notify.notify}}
+    </form>
+
+</div>
+{% endblock %}

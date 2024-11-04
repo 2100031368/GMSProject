@@ -5,34 +5,45 @@
 
  <center>
 
-        <h4 style="font-family: 'Times New Roman', Times, serif;">{{msg}}</h4><br>
-     <h2 style="font-family: 'Times New Roman', Times, serif;">📍 RESIDENTS OF AREA - {{aname}} 📍</h2><br><br>
-      <button class="button" onclick="window.location.href='/adduser0/{{aid}}'" style="margin-bottom:1%;"><b>ADD USER</b></button><br>
+     <h4 style="font-family: 'Times New Roman', Times, serif;">{{msg}}</h4><br>
+     <h2 style="font-family: 'Times New Roman', Times, serif;">🧑‍💼 SUBADMINS 🧑‍💼</h2><br><br>
      <input class="form-control" id="myInput" type="text" placeholder="Search ..."><br><br>
         <table border="1" style="font-family: 'Times New Roman', Times, serif;">
             <tr bgcolor="lightblue">
+                <td><b>AREAID</b></td>
+                <td><b>AREA</b></td>
                 <td><b>AADHAAR</b></td>
                 <td><b>NAME</b></td>
                 <td><b>MOBILE</b></td>
                 <td><b>SELF ACCOUNT ACCESS</b></td>
-                <td><b>ADMIN PREIVILAGE</b></td>
+                <td><b>ADMIN PRIVILEGE</b></td>
                 <td><b>ACTION</b></td>
             </tr>
-            {% for i in users %}
+            {% for i in subadmins %}
             <tr>
+                <td>{{i.aid}}</td>
+                <td>
+                    {%for j in areas %}
+                      {% if j.id == i.aid %}
+                        {{j.area}}
+                      {% endif %}
+                    {% endfor %}
+                </td>
                 <td>{{i.uid}}</td>
                 <td>{{i.name}}</td>
                 <td>{{i.mobile}}</td>
                 <td>{{i.flag}}</td>
                 <td>{{i.access}}</td>
                 <td>
-                    <a href="/edituser0/{{i.uid}}">EDIT USER</a><br><br>
-                    <a href="/deleteuser0/{{i.uid}}">DELETE USER</a>
+                    <a href="/adenysubadmin/{{i.uid}}">TAKE BACK SUB-ADMIN ACCESS</a><br><br>
+                    <a href="/sendnotify/{{i.uid}}">NOTIFY</a><br><br>
+                    <a href="/workanalysis/{{i.uid}}">WORK ANALYSIS</a>
                 </td>
             </tr>
             {% endfor %}
         </table>
  </center>
+
     <script>
 document.addEventListener("DOMContentLoaded", function() {
     const input = document.getElementById("myInput");

@@ -1,0 +1,87 @@
+{% extends 'adminhome.html' %}
+
+{% block 'sree' %}
+
+ <center>
+     <h2 style="font-family: 'Times New Roman', Times, serif;">🧑‍💼 NOTIFICATIONS SENT🧑‍💼</h2><br><br>
+     <input class="form-control" id="myInput" type="text" placeholder="Search ..."><br><br>
+        <table border="1" style="font-family: 'Times New Roman', Times, serif;">
+            <tr bgcolor="lightblue">
+                <td><b>ID</b></td>
+                <td><b>AREA</b></td>
+                <td><b>AADHAAR</b></td>
+                <td><b>NAME</b></td>
+                <td><b>NOTIFIED DATE</b></td>
+                <td><b>NOTIFICATION</b></td>
+                <td><b>ACTION</b></td>
+            </tr>
+            {% for i in sent %}
+             <tr style="background-color: {% if i.status == 1 %}lightgreen{% endif %};">
+                <td>{{i.id}}</td>
+                <td>
+                    {%for j in users  %}
+                      {% if j == i.touser and j.access != -1 %}
+                        {{j.aid}}
+                      {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                     {%for j in users %}
+                      {% if j == i.touser and j.access != -1 %}
+                        {{j.uid}}
+                      {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                     {%for j in users %}
+                      {% if j == i.touser and j.access != -1 %}
+                        {{j.name}}
+                      {% endif %}
+                    {% endfor %}
+                </td>
+                <td>{{i.senddt}}</td>
+                <td><a href="/readnotify/{{i.id}}">VIEW</a></td>
+
+                <td>
+                    <a href="/sendnotify/{{i.touser.uid}}">SEND NOTIFICATION</a><br><br>
+                    <a href="javascript:void(0);" onclick="del({{i.id}}, {{i.status}})">DELETE NOTIFICATION</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+ </center>
+<script type="text/javascript">
+    function del(id, status){
+        if(status == 0){
+         window.location.href='/deletenotify/' + id;
+        }
+        else{
+          alert("RECEIVER ALREADY SEEN THE NOTIFICATION. SO YOU CAN'T DELETE IT.");
+        }
+    }
+</script>
+   <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const input = document.getElementById("myInput");
+    input.addEventListener("input", filterTable);
+});
+
+function filterTable() {
+    const filter = document.getElementById("myInput").value.toLowerCase();
+    const rows = document.querySelectorAll("tbody tr");
+    rows.forEach(row => {
+        const cells = row.getElementsByTagName("td");
+        let display = "none";
+        for (let i = 0; i < cells.length; i++) {
+            const cellText = cells[i].textContent || cells[i].innerText;
+            if (cellText.toLowerCase().indexOf(filter) > -1) {
+                display = "";
+                break;
+            }
+        }
+        row.style.display = display;
+    });
+}
+</script>
+
+{% endblock %}

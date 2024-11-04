@@ -7,7 +7,7 @@
 
         <h4 style="font-family: 'Times New Roman', Times, serif;">{{msg}}</h4><br>
      <h2 style="font-family: 'Times New Roman', Times, serif;">📍 RESIDENTS OF AREA - {{aname}} 📍</h2><br><br>
-      <button class="button" onclick="window.location.href='/adduser0/{{aid}}'" style="margin-bottom:1%;"><b>ADD USER</b></button><br>
+
      <input class="form-control" id="myInput" type="text" placeholder="Search ..."><br><br>
         <table border="1" style="font-family: 'Times New Roman', Times, serif;">
             <tr bgcolor="lightblue">
@@ -18,7 +18,7 @@
                 <td><b>ADMIN PREIVILAGE</b></td>
                 <td><b>ACTION</b></td>
             </tr>
-            {% for i in users %}
+            {% for i in user %}
             <tr>
                 <td>{{i.uid}}</td>
                 <td>{{i.name}}</td>
@@ -26,8 +26,13 @@
                 <td>{{i.flag}}</td>
                 <td>{{i.access}}</td>
                 <td>
-                    <a href="/edituser0/{{i.uid}}">EDIT USER</a><br><br>
-                    <a href="/deleteuser0/{{i.uid}}">DELETE USER</a>
+                    {% if i.access == 0 %}
+                    <button class="button" onclick="window.location.href='/aaddsubadmin1/{{i.aid}}/{{i.uid}}'" style="margin-bottom:1%;"><b>GIVE ACCESS</b></button><br><br><br>
+                    {% elif i.access == -1 %}
+                    <button class="button"  style="margin-bottom:1%;"><b>ADMIN</b></button><br><br><br>
+                      {% else %}
+                    <button class="button" style="margin-bottom:1%;"><b>SUBADMIN</b></button><br><br><br>
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}

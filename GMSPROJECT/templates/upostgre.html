@@ -1,0 +1,18 @@
+{% extends 'userhome.html' %}
+
+{% block 'user' %}
+
+<center>
+     <h2 style="font-family:'Times New Roman', Times, serif; margin-top:5%; margin-bottom:3%; ">🔽 POST YOUR GRIEVANCE 🔽</h2>
+     <div class="box">
+        <form method="post" class="form-control">
+            {% csrf_token %}
+            {{form.as_p}}
+            <br>
+            <input type="submit" value="SUBMIT" class="button" />
+            <input type="reset" value="CLEAR" class="button" />
+        </form>
+     </div>
+</center>
+
+{% endblock %}
